@@ -13,10 +13,8 @@ class UsersController extends AppController {
                 $password = $this->request->data['password'];
                 
                 $password_enc = Security::hash($password, 'sha1', true);
-               
-               
-                
                 $search = $this->User->find('first',array('conditions' => array('AND' => array('login' => $login, 'password' => $password_enc))));
+               
                 if ($search)
                 {
                     $this->Session->write('Auth.User.id',$search['User']['id']);

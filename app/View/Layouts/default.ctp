@@ -7,7 +7,7 @@
     <meta name="author" content="Dashboard">
     <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
 
-    <title>DASHGUM - FREE Bootstrap Admin Template</title>
+    <title>C8 CMS - Administration</title>
 	
     <!-- Bootstrap core CSS -->
     <?php echo $this->Html->css('bootstrap'); ?>
@@ -50,7 +50,7 @@
                   <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
               </div>
             <!--logo start-->
-            <a href="index.html" class="logo"><b>Proxy2m3</b></a>
+            <a href="index.html" class="logo"><b>C8 CMS admin</b></a>
             <!--logo end-->
             
             <div class="top-menu">
@@ -70,27 +70,21 @@
               <!-- sidebar menu start-->
               <ul class="sidebar-menu" id="nav-accordion">
               
-              	  	
+              	  
                   <li class="mt">
-                      <a class="active" href="/proxy2me/proxies/dashboard">
-                          <i class="fa fa-dashboard"></i>
-                          <span>Dashboard</span>
-                      </a>
+		      <?php echo $this->Html->link($this->Html->tag('i','',array('class' => 'fa fa-dashboard')).'Informations générales',array('controller' => 'globalConfigurations','action' => 'edit'),array('escape' => false)); ?>
                   </li>
 
                   <li class="sub-menu">
                       <a href="javascript:;" >
                           <i class="fa fa-desktop"></i>
-                          <span>Proxies</span>
+                          <span>Pages du site</span>
                       </a>
+		      <ul class="sub">
+                          <li><?php echo $this->Html->link('Ajouter une page',array('controller' => 'WebsitePages', 'action' => 'add')); ?></li>
+                      </ul>
                       <ul class="sub">
-                          <li><?php echo $this->Html->link('List',array('controller' => 'proxies', 'action' => 'index')); ?></li>
-                      </ul>
-		      <ul class="sub">
-                          <li><?php echo $this->Html->link('Massive Check',array('controller' => 'proxies', 'action' => 'massiveCheck')); ?></li>
-                      </ul>
-		      <ul class="sub">
-                          <li><?php echo $this->Html->link('Add proxies',array('controller' => 'proxies', 'action' => 'add')); ?></li>
+                          <li><?php echo $this->Html->link('Liste des pages',array('controller' => 'WebsitePages', 'action' => 'index')); ?></li>
                       </ul>
                   </li>
 

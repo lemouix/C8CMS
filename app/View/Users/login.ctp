@@ -3,8 +3,9 @@
     
           <?php echo $this->Form->create('',array('class' => 'form-login')); ?>
             <h2 class="form-login-heading">sign in now</h2>
-            <?php echo $this->Session->flash('user'); ?>
+            
             <div class="login-wrap">
+                <?php echo $this->Session->flash('user'); ?>    
                 <input type="text" class="form-control" placeholder="User ID" name="login" autofocus>
                 <br>
                 <input type="password" class="form-control" placeholder="Password" name="password">

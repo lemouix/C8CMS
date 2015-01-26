@@ -25,6 +25,11 @@
  * to use (in this case, /app/View/Pages/home.ctp)...
  */
 	Router::connect('/', array('controller' => 'pages', 'action' => 'display', 'home'));
+        Router::connect('/pages-site-web', array('controller' => 'WebsitePages', 'action' => 'index'));
+        Router::connect('/ajouter-page', array('controller' => 'WebsitePages', 'action' => 'add'));
+       
+        
+        
 /**
  * ...and connect the rest of 'Pages' controller's URLs.
  */
