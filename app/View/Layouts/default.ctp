@@ -1,63 +1,136 @@
-<?php
-/**
- * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
- * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
- *
- * Licensed under The MIT License
- * For full copyright and license information, please see the LICENSE.txt
- * Redistributions of files must retain the above copyright notice.
- *
- * @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
- * @link          http://cakephp.org CakePHP(tm) Project
- * @package       app.View.Layouts
- * @since         CakePHP(tm) v 0.10.0.1076
- * @license       http://www.opensource.org/licenses/mit-license.php MIT License
- */
-
-$cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework');
-$cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
-?>
 <!DOCTYPE html>
-<html>
-<head>
-	<?php echo $this->Html->charset(); ?>
-	<title>
-		<?php echo $cakeDescription ?>:
-		<?php echo $this->fetch('title'); ?>
-	</title>
-	<?php
-		echo $this->Html->meta('icon');
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Dashboard">
+    <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
 
-		echo $this->Html->css('cake.generic');
+    <title>DASHGUM - FREE Bootstrap Admin Template</title>
+	
+    <!-- Bootstrap core CSS -->
+    <?php echo $this->Html->css('bootstrap'); ?>
+    <!--external css-->
+    <?php echo $this->Html->css('font-awesome'); ?>
+    <?php echo $this->Html->css('zabuto_calendar'); ?>
+    <?php echo $this->Html->css('jquery.gritter'); ?>
+    <?php echo $this->Html->css('font-awesome'); ?>
+    <?php echo $this->Html->css('lineicons_style'); ?>
+    
+    <!-- Custom styles for this template -->
+    <?php echo $this->Html->css('style'); ?>
+    <?php echo $this->Html->css('style-responsive'); ?>
+    
+    
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <?php echo $this->Html->css('jquery.fancybox'); ?>
+    <?php echo $this->Html->css('jquery.gritter'); ?>
+    <?php echo $this->Html->css('jquery.gritter0'); ?>
+    <?php echo $this->Html->script('jquery'); ?>
+    <?php echo $this->Html->script('jquery-1.8.3.min'); ?>
+    <?php echo $this->Html->script('timeago'); ?>
+    <?php echo $this->Html->script('global'); ?>
+  </head>
 
-		echo $this->fetch('meta');
-		echo $this->fetch('css');
-		echo $this->fetch('script');
-	?>
-</head>
-<body>
-	<div id="container">
-		<div id="header">
-			<h1><?php echo $this->Html->link($cakeDescription, 'http://cakephp.org'); ?></h1>
-		</div>
-		<div id="content">
+  <body>
+	<script>var SITE_URL = "<?php echo FULL_BASE_URL; ?>/proxy2me/";</script>
+  <section id="container" >
+      <!-- **********************************************************************************************************************************************************
+      TOP BAR CONTENT & NOTIFICATIONS
+      *********************************************************************************************************************************************************** -->
+      <!--header start-->
+      <header class="header black-bg">
+              <div class="sidebar-toggle-box">
+                  <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
+              </div>
+            <!--logo start-->
+            <a href="index.html" class="logo"><b>Proxy2m3</b></a>
+            <!--logo end-->
+            
+            <div class="top-menu">
+            	<ul class="nav pull-right top-menu">
+                    <li><?php echo $this->Html->link('Logout', array('controller' => 'users', 'action' => 'logout'),array('class' => 'logout')); ?></li>
+            	</ul>
+            </div>
+        </header>
+      <!--header end-->
+      
+      <!-- **********************************************************************************************************************************************************
+      MAIN SIDEBAR MENU
+      *********************************************************************************************************************************************************** -->
+      <!--sidebar start-->
+      <aside>
+          <div id="sidebar"  class="nav-collapse ">
+              <!-- sidebar menu start-->
+              <ul class="sidebar-menu" id="nav-accordion">
+              
+              	  	
+                  <li class="mt">
+                      <a class="active" href="/proxy2me/proxies/dashboard">
+                          <i class="fa fa-dashboard"></i>
+                          <span>Dashboard</span>
+                      </a>
+                  </li>
 
-			<?php echo $this->Session->flash(); ?>
+                  <li class="sub-menu">
+                      <a href="javascript:;" >
+                          <i class="fa fa-desktop"></i>
+                          <span>Proxies</span>
+                      </a>
+                      <ul class="sub">
+                          <li><?php echo $this->Html->link('List',array('controller' => 'proxies', 'action' => 'index')); ?></li>
+                      </ul>
+		      <ul class="sub">
+                          <li><?php echo $this->Html->link('Massive Check',array('controller' => 'proxies', 'action' => 'massiveCheck')); ?></li>
+                      </ul>
+		      <ul class="sub">
+                          <li><?php echo $this->Html->link('Add proxies',array('controller' => 'proxies', 'action' => 'add')); ?></li>
+                      </ul>
+                  </li>
 
-			<?php echo $this->fetch('content'); ?>
-		</div>
-		<div id="footer">
-			<?php echo $this->Html->link(
-					$this->Html->image('cake.power.gif', array('alt' => $cakeDescription, 'border' => '0')),
-					'http://www.cakephp.org/',
-					array('target' => '_blank', 'escape' => false, 'id' => 'cake-powered')
-				);
-			?>
-			<p>
-				<?php echo $cakeVersion; ?>
-			</p>
-		</div>
-	</div>
-	<?php echo $this->element('sql_dump'); ?>
-</body>
+              </ul>
+              <!-- sidebar menu end-->
+          </div>
+      </aside>
+      <!--sidebar end-->
+      
+      <!-- **********************************************************************************************************************************************************
+      MAIN CONTENT
+      *********************************************************************************************************************************************************** -->
+      <!--main content start-->
+      <section id="main-content">
+          <section class="wrapper">
+		<?php echo $this->fetch('content'); ?>
+	</section>
+      </section>
+
+   
+
+    <!-- js placed at the end of the document so the pages load faster -->
+    
+    <?php echo $this->Html->script('bootstrap.min'); ?>
+    <?php echo $this->Html->script('jquery.dcjqaccordion.2.7'); ?>
+    <?php echo $this->Html->script('jquery.scrollTo.min'); ?>
+    <?php echo $this->Html->script('jquery.nicescroll'); ?>
+    <?php echo $this->Html->script('jquery.sparkline'); ?>
+
+    <!--common script for all pages-->
+    <?php echo $this->Html->script('common-scripts'); ?>
+    
+    <?php echo $this->Html->script('gritter/js/jquery.gritter'); ?>
+    <?php echo $this->Html->script('gritter-conf'); ?>
+
+
+    <!--script for this page-->
+	<?php echo $this->Html->script('sparkline-chart'); ?>
+	<?php echo $this->Html->script('zabuto_calendar'); ?>
+    
+
+  </body>
 </html>
