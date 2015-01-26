@@ -36,7 +36,7 @@ class AppController extends Controller {
      
         if (!$this->Session->check('Auth.User.id'))
         {
-            if ($this->params['controller'] != 'users')
+            if (($this->params['controller'] != 'users') || ($this->params['controller'] == 'WebsitePages'))
             {
                 $this->redirect(array('controller' => 'users','action' => 'login'));
             }

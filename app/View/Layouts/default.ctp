@@ -69,23 +69,48 @@
           <div id="sidebar"  class="nav-collapse ">
               <!-- sidebar menu start-->
               <ul class="sidebar-menu" id="nav-accordion">
-              
-              	  
-                  <li class="mt">
-		      <?php echo $this->Html->link($this->Html->tag('i','',array('class' => 'fa fa-dashboard')).'Informations générales',array('controller' => 'globalConfigurations','action' => 'edit'),array('escape' => false)); ?>
-                  </li>
+              <?php
+	      
+	      $controller = strtolower($this->request->params['controller']);
+	      $action = strtolower($this->request->params['action']);
 
-                  <li class="sub-menu">
-                      <a href="javascript:;" >
-                          <i class="fa fa-desktop"></i>
-                          <span>Pages du site</span>
-                      </a>
-		      <ul class="sub">
-                          <li><?php echo $this->Html->link('Ajouter une page',array('controller' => 'WebsitePages', 'action' => 'add')); ?></li>
-                      </ul>
-                      <ul class="sub">
-                          <li><?php echo $this->Html->link('Liste des pages',array('controller' => 'WebsitePages', 'action' => 'index')); ?></li>
-                      </ul>
+	      $websitePageClass = '';
+	      $GlobalConfigurationsClass = '';
+	      $websitePageAddClass = '';
+	      $websitePageIndexClass = '';
+	      switch($controller)
+	      {
+		case 'globalconfigurationsclass':
+		  $GlobalConfigurationsOpen = 'true';
+		  $GlobalConfigurationsClass = 'active';
+		break;
+	      
+		case 'websitepages':
+		  $websitePageOpen = 'true';
+
+		  switch($action)
+		  {
+		    case 'add':
+		      $websitePageAddClass = 'active';
+		    break;
+		    case 'index':
+		      $websitePageIndexClass = 'active';
+		    break;
+		  }
+		  
+		break;
+	      
+	      }
+	      ?>
+	      
+                  <li class="">
+		      <?php echo $this->Html->link($this->Html->tag('i','',array('class' => 'fa fa-cog')).'<span>Informations générales</span>',array('controller' => 'globalConfigurations','action' => 'edit'),array('escape' => false,'class' => $GlobalConfigurationsClass)); ?>
+                  </li>
+		  <li class="">
+                      <?php echo $this->Html->link($this->Html->tag('i','',array('class' => 'fa fa-plus-square')).'<span>Ajouter une page</span>',array('controller' => 'WebsitePages', 'action' => 'add'),array('escape' => false,'class' => $websitePageAddClass)); ?>
+                  </li>
+		  <li class="">
+                    <?php echo $this->Html->link($this->Html->tag('i','',array('class' => 'fa fa-file')).'<span>Liste des pages</span>',array('controller' => 'WebsitePages', 'action' => 'index'),array('escape' => false,'class' => $websitePageIndexClass)); ?>
                   </li>
 
               </ul>

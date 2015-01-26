@@ -19,7 +19,7 @@ class UsersController extends AppController {
                 {
                     $this->Session->write('Auth.User.id',$search['User']['id']);
                     $this->Session->write('Auth.User.login',$search['User']['login']);
-                    $this->redirect(array('controller' => 'proxies','action' => 'dashboard'));
+                    $this->redirect(array('controller' => 'WebsitePages','action' => 'index'));
                 } else {
                     $this->Session->setFlash('Please indicate a valid login and password.','flash_error',array(),'user');
                 }

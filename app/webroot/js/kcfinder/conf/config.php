@@ -21,8 +21,8 @@ $_CONFIG = array(
 
 // GENERAL SETTINGS
 
-    'disabled' => true,
-    'uploadURL' => "http://www.miamee.fr/app/webroot/img/upload",
+    'disabled' => false,
+    'uploadURL' => "/app/webroot/img/upload",
     'uploadDir' => "",
     'theme' => "default",
 
