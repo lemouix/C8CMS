@@ -3,6 +3,7 @@ class GlobalConfigurationsController extends AppController {
     
     public function edit()
     {
+        $this->layout = 'backoffice';
         if ($this->request->is(array('post', 'put')))
         {
             if ($this->GlobalConfiguration->save($this->request->data))

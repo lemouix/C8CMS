@@ -3,10 +3,12 @@ class WebsitePagesController extends AppController {
     
     public function index()
     {
+        $this->layout = 'backoffice';
         $this->set('WebsitePages',$this->WebsitePage->find('all',array('order' => 'WebsitePage.id')));
     }
     public function add()
     {
+        $this->layout = 'backoffice';
         if ($this->request->is(array('post', 'put')))
         {
             $this->request->data['WebsitePage']['slug'] = Inflector::slug(strtolower($this->request->data['WebsitePage']['title']),'-');
@@ -20,6 +22,7 @@ class WebsitePagesController extends AppController {
     
     public function edit($id = null)
     {
+        $this->layout = 'backoffice';
         if ($id != null)
         {
             if ($this->request->is(array('post', 'put')))
@@ -38,6 +41,7 @@ class WebsitePagesController extends AppController {
     
     public function delete($id = null)
     {
+        $this->layout = 'backoffice';
        if ($id != null)
         {
             if ($this->WebsitePage->exists($id))
