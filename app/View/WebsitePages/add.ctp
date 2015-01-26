@@ -13,6 +13,13 @@
                     <?php echo $this->Form->input('title',array('class' => 'form-control','label' => false)); ?>
                 </div>
             </div>
+            
+            <div class="form-group">
+                <label class="col-sm-2 col-sm-2 control-label">Contenu</label>
+                <div class="col-sm-10">
+                    <?php echo $this->Form->input('content',array('class' => 'form-control ckeditor','label' => false)); ?>
+                </div>
+            </div>
             <div class="form-group">
                 <label class="col-sm-2 col-sm-2 control-label">Description</label>
                 <div class="col-sm-10">
@@ -24,12 +31,6 @@
                 <div class="col-sm-10">
                     <?php echo $this->Form->input('keywords',array('class' => 'form-control','label' => false)); ?>
                     <span class="help-block">Mots clés séparés par un point-virgule.</span>
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="col-sm-2 col-sm-2 control-label">Contenu</label>
-                <div class="col-sm-10">
-                    <?php echo $this->Form->input('content',array('class' => 'form-control ckeditor','label' => false)); ?>
                 </div>
             </div>
         </div>

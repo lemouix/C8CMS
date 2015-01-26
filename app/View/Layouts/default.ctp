@@ -4,11 +4,25 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <?php if(isset($description_for_layout))
+    {
+      ?>
+      <meta name="description" content="<?php echo $description_for_layout; ?>" />
+      <?php
+    } else {
+      ?>
+      <meta name="description" content="Miamee vous permet de trouver rapidement le meilleur plat de votre ville et de partager votre avis.">
+      <?php
+    }
+    ?>
+    <meta name="author" content="Aymeric Mathéossian">
+    <?php echo $this->Html->meta('keywords','comparateur,restaurants,comparateur de plats,que manger,manger ce soir,lyon,prix des plats,restaurant Lyon,manger pas cher,meilleure pizza,pizzas,hamburger,entrecote,brasserie,bouchon,manger à lyon,où manger ce soir,pizza,pâtes,cocktails,bières,bons plans,économies'); ?>
+    
+  <?php
+  
+  ?>
+    <title><?php echo $this->fetch('title'); ?></title>
     <link rel="icon" href="../../favicon.ico">
-
-    <title>Carousel Template for Bootstrap</title>
 
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
