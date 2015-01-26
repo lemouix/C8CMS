@@ -9,6 +9,14 @@
             <h4 class="mb"><i class="fa fa-angle-right"></i> Nouvelle page</h4>
             
             <div class="form-group">
+                <label class="col-lg-2 col-sm-2 control-label">Slug</label>
+                <div class="col-lg-10">
+                    <p class="form-control-static">
+                    <?php echo $this->request->data['WebsitePage']['slug']; ?>
+                    </p>
+                </div>
+            </div>
+            <div class="form-group">
                 <label class="col-sm-2 col-sm-2 control-label">Titre</label>
                 <div class="col-sm-10">
                     <?php echo $this->Form->input('title',array('class' => 'form-control','label' => false)); ?>
