@@ -13,15 +13,13 @@ class UsersController extends AppController {
                 $password = $this->request->data['password'];
                 
                 $password_enc = Security::hash($password, 'sha1', true);
-               
-               
-                
                 $search = $this->User->find('first',array('conditions' => array('AND' => array('login' => $login, 'password' => $password_enc))));
+               
                 if ($search)
                 {
                     $this->Session->write('Auth.User.id',$search['User']['id']);
                     $this->Session->write('Auth.User.login',$search['User']['login']);
-                    $this->redirect(array('controller' => 'proxies','action' => 'dashboard'));
+                    $this->redirect(array('controller' => 'WebsitePages','action' => 'index'));
                 } else {
                     $this->Session->setFlash('Please indicate a valid login and password.','flash_error',array(),'user');
                 }

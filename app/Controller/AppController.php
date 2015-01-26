@@ -31,4 +31,17 @@ App::uses('Controller', 'Controller');
  * @link		http://book.cakephp.org/2.0/en/controllers.html#the-app-controller
  */
 class AppController extends Controller {
+    public function beforeFilter()
+    {
+     
+        if (!$this->Session->check('Auth.User.id'))
+        {
+            if (($this->params['controller'] != 'users') || ($this->params['controller'] == 'WebsitePages'))
+            {
+                $this->redirect(array('controller' => 'users','action' => 'login'));
+            }
+            
+            //$this->redirect(array('controller' => 'users','action' => 'login'));
+        }
+    }
 }
